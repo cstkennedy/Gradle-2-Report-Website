@@ -1,6 +1,6 @@
 
 ------------------------------------------------------------
-Root project 'Example-2'
+Root project 'Gradle-2-Report-Deploy'
 ------------------------------------------------------------
 
 annotationProcessor - Annotation processors and their dependencies for source set 'main'.

@@ -1,6 +1,6 @@
 
 ------------------------------------------------------------
-Tasks runnable from root project 'Example-2'
+Tasks runnable from root project 'Gradle-2-Report-Deploy'
 ------------------------------------------------------------
 
 Application tasks
@@ -39,15 +39,15 @@ javadoc - Generates Javadoc API documentation for the main source code.
 
 Help tasks
 ----------
-buildEnvironment - Displays all buildscript dependencies declared in root project 'Example-2'.
-dependencies - Displays all dependencies declared in root project 'Example-2'.
-dependencyInsight - Displays the insight into a specific dependency in root project 'Example-2'.
+buildEnvironment - Displays all buildscript dependencies declared in root project 'Gradle-2-Report-Deploy'.
+dependencies - Displays all dependencies declared in root project 'Gradle-2-Report-Deploy'.
+dependencyInsight - Displays the insight into a specific dependency in root project 'Gradle-2-Report-Deploy'.
 help - Displays a help message.
 javaToolchains - Displays the detected java toolchains.
-outgoingVariants - Displays the outgoing variants of root project 'Example-2'.
-projects - Displays the sub-projects of root project 'Example-2'.
-properties - Displays the properties of root project 'Example-2'.
-tasks - Displays the tasks runnable from root project 'Example-2'.
+outgoingVariants - Displays the outgoing variants of root project 'Gradle-2-Report-Deploy'.
+projects - Displays the sub-projects of root project 'Gradle-2-Report-Deploy'.
+properties - Displays the properties of root project 'Gradle-2-Report-Deploy'.
+tasks - Displays the tasks runnable from root project 'Gradle-2-Report-Deploy'.
 
 Reporting tasks
 ---------------
