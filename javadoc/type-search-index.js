@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"edu.odu.cs.cs350.examples.numbers","l":"PrimeGenerator"},{"p":"edu.odu.cs.cs350.examples.numbers","l":"RunPrimeGenerator"}]
