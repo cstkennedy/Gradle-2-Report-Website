@@ -37,6 +37,11 @@ bakeInit - Setup a jbake project
 bakePreview - Preview a jbake project
 javadoc - Generates Javadoc API documentation for the main source code.
 
+GitHub Pages tasks
+------------------
+copyJBakePagesForUse
+updateGitHubPages - Copy everything into "gh-pages" directory and push to Report Website.
+
 Help tasks
 ----------
 buildEnvironment - Displays all buildscript dependencies declared in root project 'Gradle-2-Report-Deploy'.
