@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RunPrimeGenerator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Gradle-4-Integration-Tests</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.examples.numbers</a> &gt; <span class="el_source">RunPrimeGenerator.java</span></div><h1>RunPrimeGenerator.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.examples.numbers;
+
+import java.util.List;
+
+/**
+ * A simple command line test driver for Prime Generator.
+ */
+<span class="nc" id="L8">public class RunPrimeGenerator {</span>
+    /**
+     * Default number of primes to generate.
+     */
+    public static final int DEFAULT_NUMBER_OF_PRIMES = 10;
+
+    /**
+     * Parse the command line arguments and determine how many prime numbers to
+     * generate. If the user supplied no arguments or supplied a non-integer
+     * value, use program default.
+     *
+     * @param args raw array of command line arguments
+     *
+     * @return number of primes to generated
+     */
+    public static int parseCLI(String[] args)
+    {
+<span class="fc" id="L25">        int numPrimes = 0;</span>
+
+        try {
+<span class="fc" id="L28">            numPrimes = Integer.parseInt(args[0]);</span>
+        }
+<span class="fc" id="L30">        catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {</span>
+<span class="fc" id="L31">            numPrimes = DEFAULT_NUMBER_OF_PRIMES;</span>
+<span class="fc" id="L32">        }</span>
+
+<span class="fc" id="L34">        return numPrimes;</span>
+    }
+
+    /**
+     * Generate list of prime numbers.
+     *
+     * @param numPrimes total number of primes requested.
+     *
+     * @return list of prime numbers
+     */
+    public static List&lt;Integer&gt; getPrimeList(final int numPrimes)
+    {
+        // The primes 2 and 3 are added automatically by the generator
+<span class="fc" id="L47">        int numberToCompute = numPrimes - 2;</span>
+
+<span class="fc" id="L49">        PrimeGenerator gen = new PrimeGenerator();</span>
+<span class="fc" id="L50">        gen.nextFew(numberToCompute);</span>
+
+<span class="fc" id="L52">        return gen.getPrimes();</span>
+    }
+
+    /**
+     * The main function for the command line prime number generator.
+     */
+    public static void main(String[] args)
+    {
+<span class="nc" id="L60">        int numPrimes = parseCLI(args);</span>
+
+<span class="nc" id="L62">        System.out.format(&quot;Generating %d Prime Numbers%n&quot;, numPrimes);</span>
+<span class="nc" id="L63">        System.out.println();</span>
+<span class="nc" id="L64">        System.out.println(&quot;Prime Numbers Generated:&quot;);</span>
+
+<span class="nc" id="L66">        List&lt;Integer&gt; primes = getPrimeList(numPrimes);</span>
+
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        for (Integer i : primes) {</span>
+<span class="nc" id="L69">            System.out.println(i);</span>
+<span class="nc" id="L70">        }</span>
+<span class="nc" id="L71">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

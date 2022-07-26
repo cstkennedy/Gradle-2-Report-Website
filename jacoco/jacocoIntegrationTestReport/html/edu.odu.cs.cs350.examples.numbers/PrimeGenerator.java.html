@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PrimeGenerator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Gradle-4-Integration-Tests</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.examples.numbers</a> &gt; <span class="el_source">PrimeGenerator.java</span></div><h1>PrimeGenerator.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.examples.numbers;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.ListIterator;
+import java.util.Iterator;
+
+/**
+ * This is a Brute Force Prime Number Generator. It is intentionally
+ * inefficient.
+ * &lt;p&gt;
+ * There exist far more appropriate methods to identify prime numbers.
+ */
+public class PrimeGenerator implements Iterable&lt;Integer&gt; {
+    /**
+     * Ordered list of known primes.
+     */
+    private List&lt;Integer&gt; primes; // Inheritance &amp; Well-defined interfaces
+
+    /**
+     * Initialize the Prime Number Generator with the first two known
+     * primes--i.e., 2 and 3.
+     */
+    public PrimeGenerator()
+<span class="fc" id="L25">    {</span>
+<span class="fc" id="L26">        primes  = new ArrayList&lt;Integer&gt;();</span>
+
+<span class="fc" id="L28">        primes.add(Integer.valueOf(2));</span>
+<span class="fc" id="L29">        primes.add(Integer.valueOf(3));</span>
+<span class="fc" id="L30">    }</span>
+
+    /**
+     * Initialize the Prime Number Generator with a supplied list of known
+     * primes.
+     *
+     * @param knownPrimes starting list of already generated primes (assumed to
+     * be valid)
+     */
+    public PrimeGenerator(List&lt;Integer&gt; knownPrimes)
+<span class="nc" id="L40">    {</span>
+<span class="nc" id="L41">        primes = new ArrayList(knownPrimes);</span>
+<span class="nc" id="L42">    }</span>
+
+    /**
+     * Generate the next prime number.
+     */
+    public void next()
+    {
+        // prime from which to start calculations
+<span class="fc" id="L50">        int nextPrime = getLast();</span>
+
+        // true once a prime number has been identified
+<span class="fc" id="L53">        boolean prime = false;</span>
+
+        // Iterate of all existing known prime numbers
+        // halt when a prime number has been identified
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        while (!prime) {</span>
+            // Start at the beginning of the primes list
+<span class="fc" id="L59">            ListIterator&lt;Integer&gt; li = primes.listIterator();</span>
+
+            // Guess the next prime
+            // Assume the number is not prime
+<span class="fc" id="L63">            nextPrime += 2;</span>
+<span class="fc" id="L64">            prime = true;</span>
+
+            // While the list of primes has not yet been exhausted
+            // Check for divisibility by the next element--i.e.,
+            // if nextPrime %p == 0 for any p, discard nextPrime
+<span class="fc bfc" id="L69" title="All 4 branches covered.">            while (li.hasNext() &amp;&amp; prime) {</span>
+                // Retrieve the next prime, p, from
+                // the list of primes, primes
+<span class="fc" id="L72">                int p = li.next().intValue();</span>
+
+                // Is the number prime?
+<span class="fc bfc" id="L75" title="All 2 branches covered.">                prime = nextPrime % p != 0;</span>
+<span class="fc" id="L76">            }</span>
+<span class="fc" id="L77">        }</span>
+
+        // record the new prime number
+<span class="fc" id="L80">        primes.add(Integer.valueOf(nextPrime));</span>
+<span class="fc" id="L81">    }</span>
+
+    /**
+     * Generate the next round of prime numbers.
+     *
+     * @param toGenerate number of primes to generate.
+     */
+    public void nextFew(int toGenerate)
+    {
+<span class="fc bfc" id="L90" title="All 2 branches covered.">        for (int i = 0; i &lt; toGenerate; i++) {</span>
+<span class="fc" id="L91">            this.next();</span>
+        }
+<span class="fc" id="L93">    }</span>
+
+    /**
+     * Get the last (most recently generated prime).
+     *
+     * @return largest known prime as an int
+     */
+    public int getLast()
+    {
+<span class="fc" id="L102">        return primes.get(primes.size() - 1).intValue();</span>
+    }
+
+    /**
+     * Return a copy of all generated primes.
+     *
+     * @return List of all generated prime numbers
+     *
+     */
+    public final List&lt;Integer&gt; getPrimes()
+    {
+<span class="fc" id="L113">        return new ArrayList&lt;Integer&gt;(primes);</span>
+    }
+
+    /**
+     * Return an iterator to the first known prime number.
+     *
+     * @return Iterator over all Integer prime numbers
+     */
+    public Iterator&lt;Integer&gt; iterator()
+    {
+<span class="nc" id="L123">        return primes.iterator();</span>
+    }
+
+    /**
+     * Indicate the number of primes that were generated.
+     *
+     * @return number of generated primes
+     */
+    public int numberOfPrimes()
+    {
+<span class="nc" id="L133">        return primes.size();</span>
+    }
+
+    /**
+     * Compare two generators for equivalance based only on the number of
+     * primes generated.
+     */
+    @Override
+    public boolean equals(Object rhs)
+    {
+<span class="nc bnc" id="L143" title="All 2 branches missed.">        if (!(rhs instanceof PrimeGenerator)) {</span>
+<span class="nc" id="L144">            return false;</span>
+        }
+
+<span class="nc" id="L147">        PrimeGenerator rhsGen = (PrimeGenerator) rhs;</span>
+
+<span class="nc bnc" id="L149" title="All 2 branches missed.">        return this.numberOfPrimes() == rhsGen.numberOfPrimes();</span>
+    }
+
+    /**
+     * Compute a hashcode (use the same attributes used by equals).
+     */
+    @Override
+    public int hashCode()
+    {
+<span class="nc" id="L158">        return this.numberOfPrimes() * 4;</span>
+    }
+
+    /**
+     * List all generated primes (no specific formatting specified).
+     */
+    @Override
+    public String toString()
+    {
+<span class="nc" id="L167">        StringBuilder bld = new StringBuilder();</span>
+
+<span class="nc" id="L169">        bld.append(primes.get(0));</span>
+<span class="nc bnc" id="L170" title="All 2 branches missed.">        for (int i = 1; i &lt; this.numberOfPrimes(); i++) {</span>
+<span class="nc" id="L171">            bld.append(&quot;, &quot;);</span>
+<span class="nc" id="L172">            bld.append(primes.get(i));</span>
+        }
+
+<span class="nc" id="L175">        return bld.toString();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.7.1" sequence="0" timestamp="1658869740679" analysisTimestamp="1658869740679" release="">
+  <Project projectName="Gradle-4-Integration-Tests (spotbugsMain)">
+    <Jar>/media/TJ_HDD/Workspace/Courses/Reviews/Gradle-4-Integration-Tests/build/classes/java/main/edu/odu/cs/cs350/examples/numbers/PrimeGenerator.class</Jar>
+    <Jar>/media/TJ_HDD/Workspace/Courses/Reviews/Gradle-4-Integration-Tests/build/classes/java/main/edu/odu/cs/cs350/examples/numbers/RunPrimeGenerator.class</Jar>
+    <SrcDir>/media/TJ_HDD/Workspace/Courses/Reviews/Gradle-4-Integration-Tests/src/main/resources</SrcDir>
+    <SrcDir>/media/TJ_HDD/Workspace/Courses/Reviews/Gradle-4-Integration-Tests/src/main/java</SrcDir>
+  </Project>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Tue, 26 Jul 2022 17:09:00 -0400" total_classes="0" referenced_classes="0" total_bugs="0" total_size="0" num_packages="0" java_version="11.0.14" vm_version="11.0.14+9-Ubuntu-0ubuntu2.16.04" cpu_seconds="8.88" clock_seconds="2.50" peak_mbytes="327.50" alloc_mbytes="8028.00" gc_seconds="0.05">
+    <FindBugsProfile></FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>
